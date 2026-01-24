@@ -19,7 +19,7 @@
   margin: 0 0 12px;
   font-size: 32px;
   line-height: 1;
-  font-weight: 500px;
+  font-weight: 500;
   max-width: 420px;
   display: -webkit-box;
   -webkit-line-clamp: 3;
@@ -28,11 +28,18 @@
 }
 
 .profile__description {
+  max-width: 350px;
   margin: 0;
-  font-size: 18px;
-  font-weight: 400;
+  font-size: 16px;
+  font-weight: 500;
   line-height: 1.2;
   color: #212121;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  opacity: 0.7;
 }
 
 .profile__edit-btn {
@@ -100,6 +107,6 @@
     width: 100%;
   }
   .profile__edit-btn {
-    margin: 32px 0 0 0;
+    margin: 24px 0 0 0;
   }
 }
