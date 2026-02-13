@@ -1,5 +1,5 @@
 .modal {
-  visibility: visible;
+  visibility: hidden;
   background-color: #00000080;
   position: fixed;
   top: 0;
@@ -16,6 +16,7 @@
 }
 
 .modal_is-opened {
+  visibility: visible;
   opacity: 1;
   pointer-events: auto;
 }
