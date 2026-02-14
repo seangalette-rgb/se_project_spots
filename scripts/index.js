@@ -49,7 +49,7 @@ newPostCloseBtn.addEventListener("click", function () {
 function handleEditProfileSubmit(evt) {
   evt.preventDefault();
   profileNameEl.textContent = editProfileNameInput.value;
-  profileDescriptionEl.textContent = editProfileDescriptioninput.value;
+  profileDescriptionEl.textContent = editProfileDescriptionInput.value;
   editProfileModal.classList.remove("modal_is-opened");
 }
 
@@ -68,3 +68,4 @@ function handleAddCardSubmit(evt) {
 
   newPostModal.classList.remove("modal_is-opened");
 }
+addCardFormInput.addEventListener("submit", handleAddCardSubmit);

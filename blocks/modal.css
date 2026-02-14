@@ -108,7 +108,7 @@
   color: #2121214d;
 }
 
-@media screen and (max-width: 627px) {
+@media screen and (max-width: 320px) {
   .modal {
     border-radius: 8px;
     padding-left: 12px;
