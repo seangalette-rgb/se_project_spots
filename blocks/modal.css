@@ -39,7 +39,7 @@
   height: 40px;
   border: none;
   background-color: transparent;
-  background-image: url(../images/Close_Icon.svg); /* Use your SVG file path */
+  background-image: url(../images/Close_btn_Black.svg); /* Use your SVG file path */
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
@@ -84,7 +84,7 @@
   max-width: 156px;
   height: 52px;
   gap: 8px;
-  color: #212121;
+  color: #fcf5e5;
 }
 .modal__submit-btn:hover {
   opacity: 0.8;
@@ -105,8 +105,7 @@
 }
 
 .modal__input:hover {
-  border-color: #007bff;
-  background-color: #f8f9fa;
+  border-color: #212121;
 }
 
 .modal__input::placeholder {
