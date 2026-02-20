@@ -39,7 +39,7 @@
   height: 40px;
   border: none;
   background-color: transparent;
-  background-image: url(../images/Close_icon.svg); /* Use your SVG file path */
+  background-image: url(../images/Close_Icon.svg); /* Use your SVG file path */
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
@@ -48,7 +48,7 @@
 }
 
 .modal__close-btn:hover {
-  opacity: 0.7;
+  opacity: 1;
 }
 
 .modal__title {
@@ -74,10 +74,9 @@
 }
 
 .modal__submit-btn {
-  background-image: url(../images/Save_button.svg);
   border-radius: 8px;
   border: none;
-  background-color: transparent;
+  background-color: #212121;
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
@@ -88,7 +87,7 @@
   color: #212121;
 }
 .modal__submit-btn:hover {
-  visibility: visible;
+  opacity: 0.8;
 }
 
 .modal__input {
@@ -100,8 +99,14 @@
   border: 1px solid rgba(33, 33, 33, 0.4);
   box-sizing: border-box;
   gap: 10px;
+  padding: 16px 12px;
   border-style: solid;
-  color: #21212166;
+  color: #212121;
+}
+
+.modal__input:hover {
+  border-color: #007bff;
+  background-color: #f8f9fa;
 }
 
 .modal__input::placeholder {
@@ -110,30 +115,29 @@
 
 @media screen and (max-width: 320px) {
   .modal {
-    border-radius: 8px;
     padding-left: 12px;
     padding-right: 12px;
-    gap: 24px;
     margin: auto;
   }
   .modal__container {
-    width: 300px;
-    height: 336px;
-    padding: 16px;
+    padding: 22px 12px 12px;
+  }
+
+  .modal__title {
+    font-size: 20px;
+  }
+
+  .modal__label {
+    margin-bottom: 24px;
   }
 
   .modal__input {
     width: 276px;
     height: 48px;
-    border-radius: 8px;
-    border: 1px solid rgba(33, 33, 33, 0.4);
-    top: 16px;
-    right: 12px;
-    bottom: 16px;
-    gap: 10px;
-    border-style: solid;
   }
+
   .modal__submit-btn {
+    max-width: none;
     width: 100%;
   }
   .modal__close-btn {
