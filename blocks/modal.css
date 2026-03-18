@@ -96,6 +96,8 @@
 .modal__submit-btn {
   border-radius: 8px;
   display: flex;
+  justify-content: center;
+  align-items: center;
   border: none;
   background-color: #212121;
   background-repeat: no-repeat;
@@ -129,7 +131,7 @@
 .modal__input::placeholder {
   color: #2121214d;
 }
-.modal__containerEl {
+.modal__container_El {
   position: relative;
 }
 
@@ -153,7 +155,7 @@
   border-radius: 8px;
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 627px) {
   .modal {
     padding-left: 12px;
     padding-right: 12px;
@@ -184,11 +186,11 @@
     top: 16px;
     right: 16px;
   }
+}
 
-  @media screen and (max-width: 627px) {
-    .modal__close-btn_type_preview {
-      top: -48px;
-      right: 0;
-    }
+@media screen and (max-width: 627px) {
+  .modal__close-btn_type_preview {
+    top: -48px;
+    right: 0;
   }
 }

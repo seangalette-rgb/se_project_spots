@@ -81,12 +81,13 @@ function getCardElement(data) {
   });
 
   cardImageEl.addEventListener("click", () => {
-    previewImageEl.src = data.link;
-    previewImageEl.alt = data.name;
-    previewCaptionEl.textContent = data.name;
-    openModal(previewModal);
-  });
+    const cardData = {
+      link: data.link,
+      name: data.name,
+    };
 
+    openPreviewModal(cardData);
+  });
   return cardElement;
 }
 
@@ -99,13 +100,11 @@ function closeModal(modal) {
 }
 
 function openPreviewModal(cardData) {
-  const imageElement = document.querySelector(".modal__image");
+  previewImageEl.src = cardData.link;
+  previewImageEl.setAttribute("alt", cardData.name);
+  previewCaptionEl.textContent = cardData.name;
 
-  imageElement.src = cardData.link;
-
-  imageElement.setAttribute("alt", cardData.name);
-
-  openModal(openPreviewModal);
+  openModal(previewModal);
 }
 
 editProfileBtn.addEventListener("click", function () {
@@ -149,7 +148,7 @@ function handleAddCardSubmit(evt) {
   const cardElement = getCardElement(inputValues);
   cardsList.prepend(cardElement);
 
-  newPostModal.classList.remove("modal_is-opened");
+  closeModal(newPostModal);
   addCardForm.reset();
 }
 addCardForm.addEventListener("submit", handleAddCardSubmit);
