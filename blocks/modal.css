@@ -13,8 +13,8 @@
   opacity: 0;
   visibility: hidden;
   transition:
-    opacity 0.3s ease,
-    visibility 0s linear 0.3s;
+    visibility 0.3s,
+    opacity 0.3s ease-in;
 }
 
 .modal_type_preview {
@@ -25,9 +25,6 @@
   visibility: visible;
   opacity: 1;
   pointer-events: auto;
-  transition:
-    opacity 0.3s ease,
-    visibility 0s linear 0.3s;
 }
 
 .modal__container {
@@ -145,6 +142,8 @@
 }
 .modal__caption {
   font-family: Poppins, Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  margin: 0;
   background-color: #212121;
   border-radius: 8px;
   color: white;
@@ -156,17 +155,20 @@
 }
 
 @media screen and (max-width: 627px) {
-  .modal {
-    padding-left: 12px;
-    padding-right: 12px;
-    margin: auto;
-  }
   .modal__container {
     padding: 22px 12px 12px;
   }
 
+  .modal__caption {
+    font-size: 16px;
+  }
+
   .modal__title {
     font-size: 20px;
+  }
+
+  .modal__image {
+    max-width: none;
   }
 
   .modal__label {
