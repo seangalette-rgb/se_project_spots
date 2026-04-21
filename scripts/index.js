@@ -46,7 +46,7 @@ const newPostCloseBtn = newPostModal.querySelector(".modal__close-btn");
 const addCardForm = newPostModal.querySelector(".modal__form");
 const cardImageInput = newPostModal.querySelector("#card-image-input");
 const cardCaptionInput = newPostModal.querySelector("#card-caption-input");
-
+const cardSubmitBtn = newPostModal.querySelector(".modal__submit-btn");
 const previewModal = document.querySelector("#preview-modal");
 const previewModalCloseBtn = previewModal.querySelector(".modal__close-btn");
 const previewImageEl = previewModal.querySelector(".modal__image");
@@ -129,29 +129,49 @@ newPostCloseBtn.addEventListener("click", function () {
   closeModal(newPostModal);
 });
 
-function handleEditProfileSubmit(evt) {
+// Added settings object to this and config through function
+function handleEditProfileSubmit(evt, config) {
   evt.preventDefault();
+
+  // validate inputs before updating if using config
+  // checkInputValidity(editProfileForm, editProfileNameInput, config);
+  // checkInputValidity(editProfileForm, editProfileDescriptionInput, config);
+
   profileNameEl.textContent = editProfileNameInput.value;
   profileDescriptionEl.textContent = editProfileDescriptionInput.value;
   closeModal(editProfileModal);
 }
 
-editProfileForm.addEventListener("submit", handleEditProfileSubmit);
-
-function handleAddCardSubmit(evt) {
+editProfileForm.addEventListener("submit", function (evt) {
   evt.preventDefault();
-  const inputValues = {
-    name: cardCaptionInput.value,
-    link: cardImageInput.value,
-  };
+  handleEditProfileSubmit(evt, settings); // Passed settings here
+});
 
-  const cardElement = getCardElement(inputValues);
-  cardsList.prepend(cardElement);
+// setting object
+function handleAddCardSubmit(evt, config) {
+  evt.preventDefault();
 
-  closeModal(newPostModal);
-  addCardForm.reset();
+  // Validate inputs before creating a card
+  const isNameValid = checkInputValidity(addCardForm, cardCaptionInput, config);
+  const isLinkValid = checkInputValidity(addCardForm, cardImageInput, config);
+
+  if (isNameValid && isLinkValid) {
+    disableButton(cardSubmitBtn, config); // Disable button to prevent multiple submissions
+
+    const inputValues = {
+      name: cardCaptionInput.value,
+      link: cardImageInput.value,
+    };
+
+    const cardElement = getCardElement(inputValues);
+    cardsList.prepend(cardElement);
+
+    addCardForm.reset(); // Reset the form
+  }
 }
-addCardForm.addEventListener("submit", handleAddCardSubmit);
+addCardForm.addEventListener("submit", function (evt) {
+  handleAddCardSubmit(evt, settings); // Pass settings here
+});
 
 initialCards.forEach(function (item) {
   const cardElement = getCardElement(item);
